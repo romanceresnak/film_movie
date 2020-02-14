@@ -5,7 +5,7 @@ import "google/protobuf/timestamp.proto";
 //Language we have to do
 message Language{
     //Unique integer identifier of the language
-    int64 language_id = 1;
+    string language_id = 1;
 
     //Name of the language
     string name = 2;
@@ -17,16 +17,16 @@ message Language{
 //Request data to create new language
 message CreateRequest{
     //Api version
-    int64 api = 1;
+    string api = 1;
 
     //Language entity to add to database
     Language language = 2;
 }
 
 //Response message of created language
-message CreateResposnse{
+message CreateResponse{
     //APi version
-    int64 api = 1;
+    string api = 1;
 
     //We get id of language
     int64 id =2;
@@ -35,7 +35,7 @@ message CreateResposnse{
 //Request message request for get data about language
 message ReadMessage{
     //api version
-    int64 api = 1;
+    string api = 1;
 
     //Get language by id
     int64 id = 2;
@@ -44,7 +44,7 @@ message ReadMessage{
 //Response message about language
 message ReadResponse{
     //api version
-    int64 api = 1;
+    string api = 1;
 
     //Language entity read by id
     Language language = 2;
@@ -53,16 +53,26 @@ message ReadResponse{
 //Request for update language
 message UpdateRequest{
     //api version
-    int64 api = 1;
+    string api = 1;
 
     //Update entity language
     Language language = 2;
 }
 
+//Response to update language
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have beed updated
+    // Equals 1 in case of succesfull update
+    int64 updated = 2;
+}
+
 //Delete request for language
 message DeleteRequest{
     //api version
-    int64 api = 1;
+    string api = 1;
 
     //id of language which we want to delete
     // Contains number of entities have beed deleted
@@ -73,6 +83,38 @@ message DeleteRequest{
 //Response to delete language
 message DeleteResponse{
     //api version
-    int64 api = 1;
+    string api = 1;
 }
 
+//Request for read all languages
+message ReadAllRequest{
+    //api version
+    string api = 1;
+}
+
+//Response for get all the languages
+message ReadAllResponse{
+    //api version
+    string api = 1;
+
+    //List of all languages
+    repeated Language languages = 2;
+}
+
+//Service to manage list of language entity
+service LanguageService{
+    //Create new language
+    rpc Create(CreateRequest) returns (CreateResponse)
+
+    //Read language
+    rpc Read(ReadMessage) returns (CreateResponse)
+
+    //Update language
+    rpc Update(CreateRequest) returns (UpdateResponse)
+
+    //Delete language
+    rpc Delete(DeleteRequest) returns (DeleteResponse)
+
+    //Read all languages
+    rpc ReadAll(ReadAllRequest) returns (ReadAllResponse)
+}
