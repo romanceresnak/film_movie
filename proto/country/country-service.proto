@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Country{
+    //Unique identifier of each country
+    int64 country_id = 1;
+
+    //Name of the country
+    string country = 2;
+
+    google.protobuf.Timestamp lastUpdate = 3;
+}
+
+//Request data to create new country
+message CreateRequest{
+    //api version
+    string api = 1;
+
+    //Country entity
+    Country country = 2;
+}
+
+//Response data of created new country
+message CreateResponse{
+    //api version
+    string api = 1;
+
+    //Id of created country
+    int64 country_id = 2;
+}
+
+//Request data to read country by id
+message ReadRequest{
+    //api version
+    string api = 1;
+
+    //Get country by id
+    int64 country_id = 2;
+}
+
+//Response data by id
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Country by id
+    Country country = 2;
+}
+
+//Request data to update exists country
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Country entity
+    Country country = 2;
+}
+
+//Response data of updated country
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Request to delete country by id
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    //id of country which we want to delete
+    int64 country_id =2;
+}
+
+//Response for delete request
+message DeleteResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Request for reading all country entities
+message ReadAllRequest{
+    //api version
+    string id = 1;
+}
+
+//Response for read all country
+message ReadAllResponse{
+    //api version
+    string id =1;
+
+    //all country
+    repeated Country country = 2;
+}
+
+//Service to manage all the request
+service CountryService{
+    rpc Create(CreateRequest) returns(CreateResponse);
+    rpc Read(ReadRequest) returns(ReadResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns(DeleteResponse);
+    rpc ReadAll(ReadAllRequest) returns(ReadAllResponse);
+}

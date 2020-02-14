@@ -29,7 +29,7 @@ message CreateResponse{
     string api = 1;
 
     //We get id of language
-    int64 id =2;
+    int64 language_id =2;
 }
 
 //Request message request for get data about language
@@ -38,7 +38,7 @@ message ReadMessage{
     string api = 1;
 
     //Get language by id
-    int64 id = 2;
+    int64 language_id = 2;
 }
 
 //Response message about language
@@ -64,8 +64,8 @@ message UpdateResponse{
     //api version
     string api = 1;
 
-    // Contains number of entities have beed updated
-    // Equals 1 in case of succesfull update
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
     int64 updated = 2;
 }
 
@@ -75,8 +75,8 @@ message DeleteRequest{
     string api = 1;
 
     //id of language which we want to delete
-    // Contains number of entities have beed deleted
-    // Equals 1 in case of succesfull delete
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
     int64 deleted = 2;
 }
 
