@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="393cc48a-b6c3-4e8d-8272-0927cf4cf6c2" name="Default Changelist" comment="" />
+    <list default="true" id="393cc48a-b6c3-4e8d-8272-0927cf4cf6c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generate.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/actor/actor-service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/category/category-service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/category/category-service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/country/country-service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/language/language-service.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/country/country-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/country/country-service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/language/language-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/language/language-service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.12.4/libexec" />
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Roman Ceresnak &lt;romanceresnak@windowslive.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1XnW4vCdAE4R20a7GRIoxUMQ78P" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
@@ -37,5 +63,21 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Language proto service finish" />
+    <MESSAGE value="Country proto service finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Country proto service finish" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1191" y="-6" key="CommitChangelistDialog2" timestamp="1581688271852">
+      <screen x="-2560" y="-135" width="2560" height="1057" />
+    </state>
+    <state x="-1191" y="-6" key="CommitChangelistDialog2/-2560.-135.2560.1057/0.23.1280.777@-2560.-135.2560.1057" timestamp="1581688271852" />
+    <state x="-1161" y="135" key="Vcs.Push.Dialog.v2" timestamp="1581688275276">
+      <screen x="-2560" y="-135" width="2560" height="1057" />
+    </state>
+    <state x="-1161" y="135" key="Vcs.Push.Dialog.v2/-2560.-135.2560.1057/0.23.1280.777@-2560.-135.2560.1057" timestamp="1581688275276" />
   </component>
 </project>

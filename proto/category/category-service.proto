@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Category{
+    //Id of category entity
+    int64 category_id = 1;
+
+    //Name of category
+    string name = 2;
+
+    //Last update of entity
+    google.protobuf.Timestamp last_update= 3;
+}
+
+//CRUD operations
+//Request for creating category entity
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //New category entity
+    Category category =  2;
+}
+
+//Response for creating category entity
+message CreateResponse{
+    //Api version
+    string api = 1;
+
+    //id of Category
+    int64 category_id = 2;
+}
+
+//Request for read category entity by id
+message ReadRequest{
+    //Api version
+    string api = 1;
+
+    //id of searching category_id
+    int64 category_id =2;
+}
+
+//Response for read category entity by id
+message ReadResponse{
+    //Api version
+    string api = 1;
+
+    //Category entity
+    Category category = 2;
+}
+
+//Request for update category entity by id
+message UpdateRequest{
+    //Api version
+    string api = 1;
+
+    //Category entity
+    Category category = 2;
+}
+
+//Response for update category entity by id
+message UpdateResponse{
+    //Api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful update
+    int64 id =2;
+}
+
+//Request for delete category entity by id
+message DeleteRequest{
+    //Api version
+    string api = 1;
+
+    //category_id which we want to delete
+}
+
+//Response for delete category entity by id
+message DeleteResponse{
+    //Api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful update
+    int64 id =2;
+}
+
+//Request for read all category entity
+message ReadAllRequest{
+    //Api version
+    string api = 1;
+}
+
+//Response for read all category entity
+message ReadAllResponse{
+    //Api version
+    string api = 1;
+
+    //Read all category
+    repeated Category category = 2;
+}
+
+service CategoryService{
+    // Create new category entity
+    rpc Create(CreateRequest) returns(CreateResponse);
+
+    // Read category entity
+    rpc Read(ReadRequest) returns(ReadResponse);
+
+    // Update category entity
+    rpc Update(UpdateRequest) returns(UpdateResponse);
+
+    // Delete category entity
+    rpc Delete(DeleteRequest) returns(DeleteResponse);
+
+    // Delete all category
+    rpc ReadAll(ReadAllRequest) returns(ReadAllResponse);
+}

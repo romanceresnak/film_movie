@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Actor{
+    int64 actor_id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    google.protobuf.Timestamp last_update = 4;
+}
+
+//CRUD operations
+//Request for creating actor entity
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //New actor entity
+    Actor actor =  2;
+}
+
+//Response for creating actor entity
+message CreateResponse{
+    //Api version
+    string api = 1;
+
+    //id of actor
+    int64 actor_id = 2;
+}
+
+//Request for read actor entity by id
+message ReadRequest{
+    //Api version
+    string api = 1;
+
+    //id of searching actor_id
+    int64 actor_id =2;
+}
+
+//Response for read actor entity by id
+message ReadResponse{
+    //Api version
+    string api = 1;
+
+    //Actor entity
+    Actor actor = 2;
+}
+
+//Request for update actor entity by id
+message UpdateRequest{
+    //Api version
+    string api = 1;
+
+    //Actor entity
+    Actor actor = 2;
+}
+
+//Response for update actor entity by id
+message UpdateResponse{
+    //Api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful update
+    int64 id =2;
+}
+
+//Request for delete category entity by id
+message DeleteRequest{
+    //Api version
+    string api = 1;
+
+    //category_id which we want to delete
+}
+
+//Response for delete category entity by id
+message DeleteResponse{
+    //Api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful update
+    int64 id =2;
+}
+
+//Request for read all category entity
+message ReadAllRequest{
+    //Api version
+    string api = 1;
+}
+
+//Response for read all category entity
+message ReadAllResponse{
+    //Api version
+    string api = 1;
+
+    //Read all category
+    repeated Actor actor = 2;
+}
+
+service ActorService{
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Read(ReadRequest) returns (ReadResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+    rpc ReadAll(ReadAllRequest) returns (ReadAllResponse);
+}

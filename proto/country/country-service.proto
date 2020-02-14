@@ -103,9 +103,18 @@ message ReadAllResponse{
 
 //Service to manage all the request
 service CountryService{
+    //Create new country
     rpc Create(CreateRequest) returns(CreateResponse);
+
+    //Read country
     rpc Read(ReadRequest) returns(ReadResponse);
+
+    //Update country
     rpc Update(UpdateRequest) returns (UpdateResponse);
+
+    //Delete country
     rpc Delete(DeleteRequest) returns(DeleteResponse);
+
+    //Read all country
     rpc ReadAll(ReadAllRequest) returns(ReadAllResponse);
 }

@@ -104,17 +104,17 @@ message ReadAllResponse{
 //Service to manage list of language entity
 service LanguageService{
     //Create new language
-    rpc Create(CreateRequest) returns (CreateResponse)
+    rpc Create(CreateRequest) returns (CreateResponse);
 
     //Read language
-    rpc Read(ReadMessage) returns (CreateResponse)
+    rpc Read(ReadMessage) returns (CreateResponse);
 
     //Update language
-    rpc Update(CreateRequest) returns (UpdateResponse)
+    rpc Update(CreateRequest) returns (UpdateResponse);
 
     //Delete language
-    rpc Delete(DeleteRequest) returns (DeleteResponse)
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
 
     //Read all languages
-    rpc ReadAll(ReadAllRequest) returns (ReadAllResponse)
+    rpc ReadAll(ReadAllRequest) returns (ReadAllResponse);
 }
