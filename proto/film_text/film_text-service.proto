@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message FilmText{
+    //unique identifier
+    int64 film_text_id = 1;
+
+    //film title
+    string title = 2;
+
+    //title description
+    string description = 3;
+
+    //Attribute about last update
+    google.protobuf.Timestamp lastUpdate = 4;
+}
+
+//Request data to create new film text
+message CreateRequest{
+    //api version
+    string api = 1;
+
+    //FilmText entity
+    FilmText country = 2;
+}
+
+//Response data of created new film text
+message CreateResponse{
+    //api version
+    string api = 1;
+
+    //Id of created FilmText
+    int64 country_id = 2;
+}
+
+//Request data to read FilmText by id
+message ReadRequest{
+    //api version
+    string api = 1;
+
+    //Get film text by id
+    int64 country_id = 2;
+}
+
+//Response data by id
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Film text by id
+    FilmText filmText = 2;
+}
+
+//Request data to update exists film text
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Film text entity
+    FilmText filmText = 2;
+}
+
+//Response data of updated film text
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Request to delete country by id
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    //id of film text which we want to delete
+    int64 film_text_id =2;
+}
+
+//Response for delete request
+message DeleteResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Request for reading all film text entities
+message ReadAllRequest{
+    //api version
+    string id = 1;
+}
+
+//Response for read all country
+message ReadAllResponse{
+    //api version
+    string id =1;
+
+    //all film texts
+    repeated FilmText filmText = 2;
+}
+
+//Service to manage all the request
+service FilmTextService {
+    //Create new film text
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read film text
+    rpc Read (ReadRequest) returns (ReadResponse);
+
+    //Update film text
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+
+    //Delete film text
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all film text
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}

@@ -9,3 +9,6 @@ protoc proto/category/category-service.proto --go_out=plugins=grpc:.
 
 #script for generate actor service pb
 protoc proto/actor/actor-service.proto --go_out=plugins=grpc:.
+
+#script for generate actor service pb
+protoc proto/film_text/film_text-service.proto --go_out=plugins=grpc:.
