@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+//Language we have to do
+message Language{
+    //Unique integer identifier of the language
+    int64 language_id = 1;
+
+    //Name of the language
+    string name = 2;
+
+    //Date of last update
+    google.protobuf.Timestamp last_update = 3;
+}
+
+//Request data to create new language
+message CreateRequest{
+    //Api version
+    int64 api = 1;
+
+    //Language entity to add to database
+    Language language = 2;
+}
+
+//Response message of created language
+message CreateResposnse{
+    //APi version
+    int64 api = 1;
+
+    //We get id of language
+    int64 id =2;
+}
+
+//Request message request for get data about language
+message ReadMessage{
+    //api version
+    int64 api = 1;
+
+    //Get language by id
+    int64 id = 2;
+}
+
+//Response message about language
+message ReadResponse{
+    //api version
+    int64 api = 1;
+
+    //Language entity read by id
+    Language language = 2;
+}
+
+//Request for update language
+message UpdateRequest{
+    //api version
+    int64 api = 1;
+
+    //Update entity language
+    Language language = 2;
+}
+
+//Delete request for language
+message DeleteRequest{
+    //api version
+    int64 api = 1;
+
+    //id of language which we want to delete
+    // Contains number of entities have beed deleted
+    // Equals 1 in case of succesfull delete
+    int64 deleted = 2;
+}
+
+//Response to delete language
+message DeleteResponse{
+    //api version
+    int64 api = 1;
+}
+
