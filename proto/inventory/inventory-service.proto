@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Inventory{
+    //primary key of the Inventory entity
+    int64 inventory_id = 1;
+
+    //Foreign key from Film entity
+    int64 film_id = 2;
+
+    //Foreign key from Store entity
+    int64 store_id = 3;
+
+    //Last update of entity
+    google.protobuf.Timestamp last_update = 4;
+}
+
+//Request data to create new inventory
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //Language entity to add to database
+    Inventory inventory = 2;
+}
+
+//Response message of created inventory
+message CreateResponse{
+    //APi version
+    string api = 1;
+
+    //We get id of inventory
+    int64 language_id =2;
+}
+
+//Request message request for get data about inventory
+message ReadMessage{
+    //api version
+    string api = 1;
+
+    //Get inventory by id
+    int64 inventory_id = 2;
+}
+
+//Response message about inventory
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Inventory entity read by id
+    Inventory inventory = 2;
+}
+
+//Request for update inventory
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Update entity inventory
+    Inventory inventory = 2;
+}
+
+//Response to update inventory
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Delete request for inventory
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Response to delete inventory
+message DeleteResponse{
+    //api version
+    string api = 1;
+}
+
+//Request for read all inventories
+message ReadAllRequest{
+    //api version
+    string api = 1;
+}
+
+//Response for get all the inventories
+message ReadAllResponse{
+    //api version
+    string api = 1;
+
+    //List of all inventories
+    repeated Inventory inventory = 2;
+}
+
+//Service to manage list of Inventory entity
+service InventoryService {
+    //Create new language
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read language
+    rpc Read (ReadMessage) returns (CreateResponse);
+
+    //Update language
+    rpc Update (CreateRequest) returns (UpdateResponse);
+
+    //Delete language
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all languages
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}

@@ -1,3 +1,5 @@
-Install dependencies    
-go get -u google.golang.org/grpc    
-go get -u github.com/golang/protobuf/protoc-gen-go
+#Film movie project #
+
+## Install dependencies ##    
+   * go get -u google.golang.org/grpc    
+   * go get -u github.com/golang/protobuf/protoc-gen-go
