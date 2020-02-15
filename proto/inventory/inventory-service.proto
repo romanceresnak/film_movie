@@ -104,18 +104,18 @@ message ReadAllResponse{
 
 //Service to manage list of Inventory entity
 service InventoryService {
-    //Create new language
+    //Create new inventory
     rpc Create (CreateRequest) returns (CreateResponse);
 
-    //Read language
+    //Read inventory
     rpc Read (ReadMessage) returns (CreateResponse);
 
-    //Update language
+    //Update inventory
     rpc Update (CreateRequest) returns (UpdateResponse);
 
-    //Delete language
+    //Delete inventory
     rpc Delete (DeleteRequest) returns (DeleteResponse);
 
-    //Read all languages
+    //Read all inventory
     rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
 }

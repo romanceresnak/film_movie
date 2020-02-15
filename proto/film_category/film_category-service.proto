@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Film{
+    //id of the film
+    int64 film_id = 1;
+
+    //title of the film
+    string title = 2;
+
+    //Description of the film
+    string description = 3;
+
+    //Release year of the film
+    string release_year = 4;
+
+    //Foreign key from Language entity
+    int64 language_id = 5;
+
+    //Optional parameter of original language
+    int64 original_language_id = 6;
+
+    //Rental duration of film
+    string rental_duration = 7;
+
+    //Rental rate of film
+    string rental_rate = 8;
+
+    //The length of film
+    int64 length = 9;
+
+    //Cost of the replacement
+    string replacement_cost = 10;
+
+    //Rating of the film
+    string rating = 11;
+
+    //Some special effects
+    string special_features = 12;
+
+    //last update of Film entity
+    google.protobuf.Timestamp last_update = 13;
+}
+
+//Request data to create new film
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //Film entity to add to database
+    Film film = 2;
+}
+
+//Response message of created film
+message CreateResponse{
+    //APi version
+    string api = 1;
+
+    //We get id of film
+    int64 film =2;
+}
+
+//Request message request for get data about film
+message ReadMessage{
+    //api version
+    string api = 1;
+
+    //Get film by id
+    int64 film_id = 2;
+}
+
+//Response message about film
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Film entity read by id
+    Film film = 2;
+}
+
+//Request for update film
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Update entity film
+    Film film = 2;
+}
+
+//Response to update film
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Delete request for film
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Response to delete film
+message DeleteResponse{
+    //api version
+    string api = 1;
+}
+
+//Request for read all films
+message ReadAllRequest{
+    //api version
+    string api = 1;
+}
+
+//Response for get all the films
+message ReadAllResponse{
+    //api version
+    string api = 1;
+
+    //List of all film
+    repeated Film film = 2;
+}
+
+//Service to manage list of film entity
+service FilmService {
+    //Create new film
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read film
+    rpc Read (ReadMessage) returns (CreateResponse);
+
+    //Update film
+    rpc Update (CreateRequest) returns (UpdateResponse);
+
+    //Delete film
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all film
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}
