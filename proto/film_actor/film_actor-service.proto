@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message FilmActor{
+    //id of film actor
+    int64 film_actor_id = 1;
+
+    //id of actor
+    int64 actor = 2;
+
+    //film id as primary foreign key
+    int64 film_id = 3;
+
+    //Time when the entity was update last time
+    google.protobuf.Timestamp last_update = 4;
+}
+
+//Request data to create new film actor
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //Film actor entity to add to database
+    FilmActor film_actor = 2;
+}
+
+//Response message of created film actor
+message CreateResponse{
+    //APi version
+    string api = 1;
+
+    //We get id of film actor
+    int64 film_actor_id =2;
+}
+
+//Request message request for get data about film actor
+message ReadMessage{
+    //api version
+    string api = 1;
+
+    //Get film actor by id
+    int64 film_actor_id = 2;
+}
+
+//Response message about film actor
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Film actor entity read by id
+    FilmActor film_actor = 2;
+}
+
+//Request for update film actor
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Update entity inventory
+    FilmActor film_actor = 2;
+}
+
+//Response to update film actor
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Delete request for film actor
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Response to delete film actor
+message DeleteResponse{
+    //api version
+    string api = 1;
+}
+
+//Request for read all film actors
+message ReadAllRequest{
+    //api version
+    string api = 1;
+}
+
+//Response for get all the film actors
+message ReadAllResponse{
+    //api version
+    string api = 1;
+
+    //List of all film actors
+    repeated FilmActor film_actor = 2;
+}
+
+//Service to manage list of FilmActor entity
+service FilmActorService {
+    //Create new film actor
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read film actor
+    rpc Read (ReadMessage) returns (CreateResponse);
+
+    //Update film actor
+    rpc Update (CreateRequest) returns (UpdateResponse);
+
+    //Delete film actor
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all film actor
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}

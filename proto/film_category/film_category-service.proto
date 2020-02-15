@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-message Film{
+message FilmCategory{
     //id of the film
     int64 film_id = 1;
 
@@ -43,30 +43,30 @@ message Film{
     google.protobuf.Timestamp last_update = 13;
 }
 
-//Request data to create new film
+//Request data to create new film category
 message CreateRequest{
     //Api version
     string api = 1;
 
-    //Film entity to add to database
-    Film film = 2;
+    //Film category entity to add to database
+    FilmCategory film_category = 2;
 }
 
-//Response message of created film
+//Response message of created film category
 message CreateResponse{
     //APi version
     string api = 1;
 
-    //We get id of film
+    //We get id of film category
     int64 film =2;
 }
 
-//Request message request for get data about film
+//Request message request for get data about film category
 message ReadMessage{
     //api version
     string api = 1;
 
-    //Get film by id
+    //Get film category by id
     int64 film_id = 2;
 }
 
@@ -76,19 +76,19 @@ message ReadResponse{
     string api = 1;
 
     //Film entity read by id
-    Film film = 2;
+    FilmCategory film_category = 2;
 }
 
-//Request for update film
+//Request for update film category
 message UpdateRequest{
     //api version
     string api = 1;
 
     //Update entity film
-    Film film = 2;
+    FilmCategory film_categor = 2;
 }
 
-//Response to update film
+//Response to update film category
 message UpdateResponse{
     //api version
     string api = 1;
@@ -98,7 +98,7 @@ message UpdateResponse{
     int64 updated = 2;
 }
 
-//Delete request for film
+//Delete request for film category
 message DeleteRequest{
     //api version
     string api = 1;
@@ -108,41 +108,41 @@ message DeleteRequest{
     int64 deleted = 2;
 }
 
-//Response to delete film
+//Response to delete film category
 message DeleteResponse{
     //api version
     string api = 1;
 }
 
-//Request for read all films
+//Request for read all film categories
 message ReadAllRequest{
     //api version
     string api = 1;
 }
 
-//Response for get all the films
+//Response for get all the film categories
 message ReadAllResponse{
     //api version
     string api = 1;
 
     //List of all film
-    repeated Film film = 2;
+    repeated FilmCategory film_category = 2;
 }
 
-//Service to manage list of film entity
+//Service to manage list of film category entity
 service FilmService {
-    //Create new film
+    //Create new film category
     rpc Create (CreateRequest) returns (CreateResponse);
 
-    //Read film
+    //Read film category
     rpc Read (ReadMessage) returns (CreateResponse);
 
-    //Update film
+    //Update film category
     rpc Update (CreateRequest) returns (UpdateResponse);
 
-    //Delete film
+    //Delete film category
     rpc Delete (DeleteRequest) returns (DeleteResponse);
 
-    //Read all film
+    //Read all film category
     rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
 }
