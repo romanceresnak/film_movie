@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Customer{
+    //unique identifier of staff
+    int64 customer_id = 1;
+
+    //unique identifier of store
+    int64 store_id = 2;
+
+    //first name
+    string first_name = 3;
+
+    //last name
+    string last_name = 4;
+
+    //email of the store
+    string email = 5;
+
+    //address id of store
+    string address_id = 6;
+
+    //user is active 0 alse 1
+    int64 active = 7;
+
+    //created date
+    string created_date = 8;
+
+    //Attribute about last update
+    google.protobuf.Timestamp lastUpdate = 9;
+}
+
+//Request data to create new customer
+message CreateRequest{
+    //api version
+    string api = 1;
+
+    //Customer entity
+    Customer customer = 2;
+}
+
+//Response data of created new customer
+message CreateResponse{
+    //api version
+    string api = 1;
+
+    //Id of created customer
+    int64 customer_id = 2;
+}
+
+//Request data to read customer by id
+message ReadRequest{
+    //api version
+    string api = 1;
+
+    //Get customer by id
+    int64 customer_id = 2;
+}
+
+//Response data by id
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Customer by id
+    Customer staff_id = 2;
+}
+
+//Request data to update exists customers
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Store customer entity
+    Customer staff = 2;
+}
+
+//Response data of updated customer
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Request to delete customer by id
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    //id of staff which we want to delete
+    int64 customer_id =2;
+}
+
+//Response for delete request
+message DeleteResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Request for reading all staff customers
+message ReadAllRequest{
+    //api version
+    string id = 1;
+}
+
+//Response for read all customers
+message ReadAllResponse{
+    //api version
+    string id =1;
+
+    //all customers
+    repeated Customer customers = 2;
+}
+
+//Service to manage all the request
+service StaffService {
+    //Create new staff
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read staff
+    rpc Read (ReadRequest) returns (ReadResponse);
+
+    //Update staff
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+
+    //Delete staff
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all staff
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}
