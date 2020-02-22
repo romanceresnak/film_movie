@@ -33,3 +33,6 @@ protoc proto/staff/staff-service.proto --go_out=plugins=grpc:.
 
 #script for generate customer service pb
 protoc proto/customer/customer-service.proto --go_out=plugins=grpc:.
+
+#script for generate payment service pb
+protoc proto/payment/payment-service.proto --go_out=plugins=grpc:.

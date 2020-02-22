@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Payment{
+    //unique identifier of payment
+    int64 payment_id = 1;
+
+    //primary key from entity customer
+    string customer_id = 2;
+
+    //primary key from entity staff
+    string staff_id = 3;
+
+    //primary key from entity rental
+    string rental_id = 4;
+
+    //amount of products
+    string amount = 5;
+
+    //payment data
+    string payment_date = 6;
+
+    //Attribute about last update
+    google.protobuf.Timestamp lastUpdate = 7;
+}
+
+//Request data to create new payment
+message CreateRequest{
+    //api version
+    string api = 1;
+
+    //Payment entity
+    Payment payment = 2;
+}
+
+//Response data of created new payment
+message CreateResponse{
+    //api version
+    string api = 1;
+
+    //Id of created Payment
+    int64 country_id = 2;
+}
+
+//Request data to read Payment by id
+message ReadRequest{
+    //api version
+    string api = 1;
+
+    //Get store payment by id
+    int64 payment_id = 2;
+}
+
+//Response data by id
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Payment by id
+    Payment payment = 2;
+}
+
+//Request data to update exists payment
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Payment entity
+    Payment payment = 2;
+}
+
+//Response data of updated payment
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Request to delete payment by id
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    //id of payment which we want to delete
+    int64 payment_id =2;
+}
+
+//Response for delete request
+message DeleteResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Request for reading all payments entities
+message ReadAllRequest{
+    //api version
+    string id = 1;
+}
+
+//Response for read all payments
+message ReadAllResponse{
+    //api version
+    string id =1;
+
+    //all film
+    repeated Payment payments = 2;
+}
+
+//Service to manage all the request
+service StoreService {
+    //Create new payment
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read payment
+    rpc Read (ReadRequest) returns (ReadResponse);
+
+    //Update payment
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+
+    //Delete payment
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all payments
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}
