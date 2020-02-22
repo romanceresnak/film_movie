@@ -27,3 +27,6 @@ protoc proto/film_category/film-category-service.proto --go_out=plugins=grpc:.
 
 #script for generate store service pb
 protoc proto/store/store-service.proto --go_out=plugins=grpc:.
+
+#script for generate staff service pb
+protoc proto/staff/staff-service.proto --go_out=plugins=grpc:.
