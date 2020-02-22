@@ -638,15 +638,15 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type InventoryServiceClient interface {
-	//Create new language
+	//Create new inventory
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
-	//Read language
+	//Read inventory
 	Read(ctx context.Context, in *ReadMessage, opts ...grpc.CallOption) (*CreateResponse, error)
-	//Update language
+	//Update inventory
 	Update(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
-	//Delete language
+	//Delete inventory
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
-	//Read all languages
+	//Read all inventory
 	ReadAll(ctx context.Context, in *ReadAllRequest, opts ...grpc.CallOption) (*ReadAllResponse, error)
 }
 
@@ -705,15 +705,15 @@ func (c *inventoryServiceClient) ReadAll(ctx context.Context, in *ReadAllRequest
 
 // InventoryServiceServer is the server API for InventoryService service.
 type InventoryServiceServer interface {
-	//Create new language
+	//Create new inventory
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
-	//Read language
+	//Read inventory
 	Read(context.Context, *ReadMessage) (*CreateResponse, error)
-	//Update language
+	//Update inventory
 	Update(context.Context, *CreateRequest) (*UpdateResponse, error)
-	//Delete language
+	//Delete inventory
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-	//Read all languages
+	//Read all inventory
 	ReadAll(context.Context, *ReadAllRequest) (*ReadAllResponse, error)
 }
 

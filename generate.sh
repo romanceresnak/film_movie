@@ -36,3 +36,12 @@ protoc proto/customer/customer-service.proto --go_out=plugins=grpc:.
 
 #script for generate payment service pb
 protoc proto/payment/payment-service.proto --go_out=plugins=grpc:.
+
+#script for generate rental service pb
+protoc proto/rental/rental-service.proto --go_out=plugins=grpc:.
+
+#script for generate city service pb
+protoc proto/city/city-service.proto --go_out=plugins=grpc:.
+
+#script for generate city service pb
+protoc proto/address/address-service.proto --go_out=plugins=grpc:.

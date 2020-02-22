@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="393cc48a-b6c3-4e8d-8272-0927cf4cf6c2" name="Default Changelist" comment="Inventory service proto service finish">
-      <change afterPath="$PROJECT_DIR$/proto/payment/payment-service.proto" afterDir="false" />
+    <list default="true" id="393cc48a-b6c3-4e8d-8272-0927cf4cf6c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/proto/address/address-service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/address/address-service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/city/city-service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/city/city-service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/rental/rental-service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/rental/rental-service.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/generate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/customer/customer-service.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/customer/customer-service.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/customer/customer-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/customer/customer-service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/film/film-service.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/film/film-service.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/film/film-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/film/film-service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/film_category/film-category-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/film_category/film-category-service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/inventory/inventory-service.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/inventory/inventory-service.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/payment/payment-service.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/payment/payment-service.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/payment/payment-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/payment/payment-service.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,17 +87,18 @@
     <MESSAGE value="Store service proto service finish" />
     <MESSAGE value="Staff service proto service finish" />
     <MESSAGE value="Customer service proto service finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer service proto service finish" />
+    <MESSAGE value="Payment service proto service finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Payment service proto service finish" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1293" y="-135" width="1293" height="1057" key="CommitChangelistDialog2" timestamp="1582368069462">
+    <state x="-2560" y="-135" width="1267" height="1057" key="CommitChangelistDialog2" timestamp="1582371294624">
       <screen x="-2560" y="-135" width="2560" height="1057" />
     </state>
-    <state x="-1293" y="-135" width="1293" height="1057" key="CommitChangelistDialog2/-2560.-135.2560.1057/0.23.1280.777@-2560.-135.2560.1057" timestamp="1582368069462" />
-    <state x="-2560" y="-135" width="1267" height="1057" key="Vcs.Push.Dialog.v2" timestamp="1582368072624">
+    <state x="-2560" y="-135" width="1267" height="1057" key="CommitChangelistDialog2/-2560.-135.2560.1057/0.23.1280.777@-2560.-135.2560.1057" timestamp="1582371294624" />
+    <state x="-2560" y="-135" width="1267" height="1057" key="Vcs.Push.Dialog.v2" timestamp="1582369375960">
       <screen x="-2560" y="-135" width="2560" height="1057" />
     </state>
-    <state x="-2560" y="-135" width="1267" height="1057" key="Vcs.Push.Dialog.v2/-2560.-135.2560.1057/0.23.1280.777@-2560.-135.2560.1057" timestamp="1582368072624" />
+    <state x="-2560" y="-135" width="1267" height="1057" key="Vcs.Push.Dialog.v2/-2560.-135.2560.1057/0.23.1280.777@-2560.-135.2560.1057" timestamp="1582369375960" />
     <state x="-956" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581697835245">
       <screen x="-2560" y="-135" width="2560" height="1057" />
     </state>

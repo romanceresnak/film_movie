@@ -125,7 +125,7 @@ message ReadAllResponse{
     //api version
     string api = 1;
 
-    //List of all film
+    //List of all films
     repeated FilmCategory film_category = 2;
 }
 

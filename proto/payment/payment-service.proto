@@ -110,12 +110,12 @@ message ReadAllResponse{
     //api version
     string id =1;
 
-    //all film
+    //all payments
     repeated Payment payments = 2;
 }
 
 //Service to manage all the request
-service StoreService {
+service PaymentService {
     //Create new payment
     rpc Create (CreateRequest) returns (CreateResponse);
 

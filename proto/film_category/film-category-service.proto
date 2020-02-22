@@ -102,7 +102,7 @@ message ReadAllResponse{
     repeated FilmCategory film_category = 2;
 }
 
-//Service to manage list of FilmActor entity
+//Service to manage list of Film category entity
 service FilmCategoryService {
     //Create new film category
     rpc Create (CreateRequest) returns (CreateResponse);

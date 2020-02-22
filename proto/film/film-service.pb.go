@@ -611,7 +611,7 @@ func (m *ReadAllRequest) GetApi() string {
 type ReadAllResponse struct {
 	//api version
 	Api string `protobuf:"bytes,1,opt,name=api,proto3" json:"api,omitempty"`
-	//List of all film
+	//List of all films
 	FilmCategory         []*FilmCategory `protobuf:"bytes,2,rep,name=film_category,json=filmCategory,proto3" json:"film_category,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`

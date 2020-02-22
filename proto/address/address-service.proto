@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Address{
+    //Id of the address
+    int64 address_id = 1;
+
+    //First address
+    string address = 2;
+
+    //Second address
+    string address2 = 3;
+
+    //District of the address
+    string district = 4;
+
+    //Primary key from city entity
+    int64 city_id = 5;
+
+    //Postal code
+    string postal_code = 6;
+
+    //Phone number
+    string phone = 7;
+
+    //Last update of entity
+    google.protobuf.Timestamp last_update= 8;
+}
+
+//Request for creating address entity
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //New address entity
+    Address address =  2;
+}
+
+//Response for creating address entity
+message CreateResponse{
+    //Api version
+    string api = 1;
+
+    //id of Address
+    int64 address_id = 2;
+}
+
+//Request for read address entity by id
+message ReadRequest{
+    //Api version
+    string api = 1;
+
+    //id of searching address_id
+    int64 address_id =2;
+}
+
+//Response for read address entity by id
+message ReadResponse{
+    //Api version
+    string api = 1;
+
+    //Category entity
+    Address address = 2;
+}
+
+//Request for update address entity by id
+message UpdateRequest{
+    //Api version
+    string api = 1;
+
+    //Address entity
+    Address address = 2;
+}
+
+//Response for update address entity by id
+message UpdateResponse{
+    //Api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful update
+    int64 id =2;
+}
+
+//Request for delete address entity by id
+message DeleteRequest{
+    //Api version
+    string api = 1;
+
+    //address_id which we want to delete
+    int64 deleted = 2;
+}
+
+//Response for delete address entity by id
+message DeleteResponse{
+    //Api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful update
+    int64 id =2;
+}
+
+//Request for read all address entity
+message ReadAllRequest{
+    //Api version
+    string api = 1;
+}
+
+//Response for read all address entities
+message ReadAllResponse{
+    //Api version
+    string api = 1;
+
+    //Read all category
+    repeated Address addresses = 2;
+}
+
+service AddressService{
+    // Create new address entity
+    rpc Create(CreateRequest) returns(CreateResponse);
+
+    // Read address entity
+    rpc Read(ReadRequest) returns(ReadResponse);
+
+    // Update address entity
+    rpc Update(UpdateRequest) returns(UpdateResponse);
+
+    // Delete address entity
+    rpc Delete(DeleteRequest) returns(DeleteResponse);
+
+    // Delete all addresses
+    rpc ReadAll(ReadAllRequest) returns(ReadAllResponse);
+}
