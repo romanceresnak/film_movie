@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message FilmCategory{
+    //id of film category id actor
+    int64 film_category_id = 1;
+
+    //id of film
+    int64 film_id = 2;
+
+    //category id as primary foreign key
+    int64 category_id = 3;
+
+    //Time when the entity was update last time
+    google.protobuf.Timestamp last_update = 4;
+}
+
+//Request data to create new film category entity
+message CreateRequest{
+    //Api version
+    string api = 1;
+
+    //Film category entity to add to database
+    FilmCategory film_category = 2;
+}
+
+//Response message of created film category
+message CreateResponse{
+    //APi version
+    string api = 1;
+
+    //We get id of film category
+    int64 film_actor_id =2;
+}
+
+//Request message request for get data about film category
+message ReadMessage{
+    //api version
+    string api = 1;
+
+    //Get film category by id
+    int64 film_category_id = 2;
+}
+
+//Response message about film category
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Film category entity read by id
+    FilmCategory film_category = 2;
+}
+
+//Request for update film category
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Update entity
+    FilmCategory film_category = 2;
+}
+
+//Response to update film category
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Delete request for film category
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Response to delete film category
+message DeleteResponse{
+    //api version
+    string api = 1;
+}
+
+//Request for read all film category
+message ReadAllRequest{
+    //api version
+    string api = 1;
+}
+
+//Response for get all the film category
+message ReadAllResponse{
+    //api version
+    string api = 1;
+
+    //List of all film category
+    repeated FilmCategory film_category = 2;
+}
+
+//Service to manage list of FilmActor entity
+service FilmCategoryService {
+    //Create new film category
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read film category
+    rpc Read (ReadMessage) returns (CreateResponse);
+
+    //Update film category
+    rpc Update (CreateRequest) returns (UpdateResponse);
+
+    //Delete film category
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all film category
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}
