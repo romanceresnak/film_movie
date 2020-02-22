@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Store{
+    //unique identifier of store
+    int64 store_id = 1;
+
+    //film manager staff
+    string manager_staff_id = 2;
+
+    //address id
+    string address_id = 3;
+
+    //Attribute about last update
+    google.protobuf.Timestamp lastUpdate = 4;
+}
+
+//Request data to create new film text
+message CreateRequest{
+    //api version
+    string api = 1;
+
+    //Store entity
+    Store country = 2;
+}
+
+//Response data of created new film text
+message CreateResponse{
+    //api version
+    string api = 1;
+
+    //Id of created Store
+    int64 country_id = 2;
+}
+
+//Request data to read Store by id
+message ReadRequest{
+    //api version
+    string api = 1;
+
+    //Get store text by id
+    int64 country_id = 2;
+}
+
+//Response data by id
+message ReadResponse{
+    //api version
+    string api = 1;
+
+    //Store text by id
+    Store filmText = 2;
+}
+
+//Request data to update exists store text
+message UpdateRequest{
+    //api version
+    string api = 1;
+
+    //Store text entity
+    Store filmText = 2;
+}
+
+//Response data of updated store text
+message UpdateResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been updated
+    // Equals 1 in case of successful update
+    int64 updated = 2;
+}
+
+//Request to delete store by id
+message DeleteRequest{
+    //api version
+    string api = 1;
+
+    //id of film text which we want to delete
+    int64 store_id =2;
+}
+
+//Response for delete request
+message DeleteResponse{
+    //api version
+    string api = 1;
+
+    // Contains number of entities have been deleted
+    // Equals 1 in case of successful delete
+    int64 deleted = 2;
+}
+
+//Request for reading all store entities
+message ReadAllRequest{
+    //api version
+    string id = 1;
+}
+
+//Response for read all stores
+message ReadAllResponse{
+    //api version
+    string id =1;
+
+    //all film
+    repeated Store stores = 2;
+}
+
+//Service to manage all the request
+service StoreService {
+    //Create new store text
+    rpc Create (CreateRequest) returns (CreateResponse);
+
+    //Read store text
+    rpc Read (ReadRequest) returns (ReadResponse);
+
+    //Update store text
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+
+    //Delete store text
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+    //Read all store text
+    rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
+}
